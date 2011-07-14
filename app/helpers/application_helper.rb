@@ -10,4 +10,9 @@ module ApplicationHelper
     end
   end    
 
+  #Return site logo:
+  def logo
+    image_tag("autumn.jpg", :size => "300x140", :alt => "Autumn", :class => "round")
+  end
+
 end
