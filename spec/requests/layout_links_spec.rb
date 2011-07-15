@@ -39,6 +39,6 @@ describe "LayoutLinks" do
     click_link "Home"
     response.should have_selector('title', :content => "Home")
   end
-
+ 
 
 end
