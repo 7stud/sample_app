@@ -1,4 +1,4 @@
-require 'rubygems'
+#require 'rubygems'
 require 'spork'
 
 Spork.prefork do
@@ -8,12 +8,14 @@ Spork.prefork do
   
   ENV["RAILS_ENV"] ||= 'test'
 
-  unless defined?(Rails)
-    require File.dirname(__FILE__) + "/../config/environment"
-  end
-
+  #unless defined?(Rails)
+    #require File.dirname(__FILE__) + "/../config/environment"
+  #end
+  require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+
+  #Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 
 
@@ -35,7 +37,7 @@ Spork.prefork do
     # instead of true.
     config.use_transactional_fixtures = true
 
-    ActiveSupport::Dependencies.clear
+    #ActiveSupport::Dependencies.clear
   end
 end
 
@@ -86,5 +88,7 @@ end
   # instead of true.
   #config.use_transactional_fixtures = true
 #end
+
+
 
 
