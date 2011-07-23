@@ -20,6 +20,8 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #fff;
+  /* me */
+  height: 200px;
 }
 
 section h1 {
@@ -112,8 +114,25 @@ footer {
   width: 710px;
   margin-left: auto;
   margin-right: auto;
+  clear: both;
 }
 
 footer nav {
   float: none;
 }
+
+/* User show page */
+section > h1 {
+  float: left;
+} 
+
+section > div {
+  float: right;
+}
+
+section img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+
+
