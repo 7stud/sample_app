@@ -1,10 +1,11 @@
 .container {
   width: 710px;
-}
+ }
 
 body {
-  background: #cff;
+  background: #800;
 }
+  
 
 header {
   padding-top: 20px;
@@ -12,14 +13,14 @@ header {
 
 header img {
   padding: 1em;
-  background: #fff;
+  background: #f0f0f0;
 }
 
 section {
   margin-top: 1em;
-  font-size: 120%;
+  font-size: 150%;
   padding: 20px;
-  background: #fff;
+  background: #f0f0f0;
 
   /* me */
   #height: 200px;
@@ -27,6 +28,10 @@ section {
 
 section h1 {
   font-size: 200%;
+}
+
+section input {
+  font-size: 100%;
 }
 
 /* Links */
@@ -53,7 +58,7 @@ nav {
 }
 
 nav {
-  background-color: white;
+  background-color: #f0f0f0;
   padding: 0 0.7em;
   white-space: nowrap;
 }
@@ -117,6 +122,7 @@ footer {
   margin-left: auto;
   margin-right: auto;
   clear: both;
+  background-color: #f0f0f0;
 }
 
 footer nav {
@@ -158,7 +164,7 @@ section img.gravatar {
 }
 
 #error_explanation {
-  width: 400px;
+  width: 450px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
@@ -170,7 +176,7 @@ section img.gravatar {
   text-align: left;
   font-weight: bold;
   padding: 5px 5px 5px 15px;
-  font-size: 12px;
+  font-size: 17px;
   margin: -7px;
   background-color: #f0f0f0;
   color: #f00;
@@ -183,6 +189,6 @@ section img.gravatar {
 }
 
 #error_explanation ul li {
-  font-size: 12px;
+  font-size: 15px;
   list-style: square;
 }

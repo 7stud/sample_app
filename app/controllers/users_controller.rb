@@ -18,6 +18,13 @@ class UsersController < ApplicationController
       redirect_to @user #goes to user 'show' page
     else
       @title = 'Sign up'
+
+      #If password errors, then erase passwords.
+      #If no password errors, redisplay passwords.
+      if @user.errors.full_messages.any? {|error| error.match /password/i}
+          @user.password = ''
+          @user.password_confirmation = ''
+      end
       render 'new'
     end
   end
