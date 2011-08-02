@@ -63,7 +63,7 @@ describe SessionsController do
 
       it "should sign the user in" do
         post :create, :session => @attr
-        controller.get_user_from_cookie.should == @user
+        controller.get_user_from_session.should == @user
         controller.should be_signed_in
       end
 

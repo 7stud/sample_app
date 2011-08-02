@@ -1,7 +1,9 @@
 module SessionsHelper
 
   def sign_in(user)
-    cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    #cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+    session[:user_id] = user.id   #set cookie
+
     #self.current_user = user
     @current_user = user
   end
@@ -34,18 +36,22 @@ module SessionsHelper
   end
 =end
   def signed_in?
-    get_user_from_cookie ? true : false
+    #get_user_from_cookie ? true : false
+    get_user_from_session ? true : false
   end
 
   def sign_out
-    cookies.delete(:remember_token) 
+    #cookies.delete(:remember_token) 
+    session.delete(:user_id)
     @current_user = nil
   end
 
-  def get_user_from_cookie
+  #def get_user_from_cookie
+  def get_user_from_session
     @current_user || begin
-      cookie_array = cookies.signed[:remember_token] || [nil, nil]
-      @current_user = User.authenticate_with_salt(*cookie_array)
+      #cookie_array = cookies.signed[:remember_token] || [nil, nil]
+      #@current_user = User.authenticate_with_salt(*cookie_array)
+      @current_user = User.find_by_id( session[:user_id] )  #and method returns this val
     end
   end
 =begin
@@ -95,5 +101,5 @@ module SessionsHelper
 =end
 end
 
-
+   
 
