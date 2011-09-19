@@ -192,3 +192,17 @@ section img.gravatar {
   font-size: 15px;
   list-style: square;
 }
+
+
+/* Users index page */
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
+
+

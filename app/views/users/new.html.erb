@@ -1,12 +1,10 @@
 <h1>Sign up</h1>
 
 <%= form_for(@user) do |f| %>
-<% @f_for_partial = f %>
-
-  <%= render 'shared/error_messages' %>
+  <%= render 'shared/error_messages', :object => f.object %>
 
   <div class="field">
-    <%= f.label :name, "Name:"%>
+    <%= f.label :name, "Name:" %>
   </div>
   <div>
     <%= f.text_field :name %>
@@ -26,7 +24,7 @@
     <%= f.password_field :password %>
   </div>
   
-  <%= render 'users/password_confirmation_fix' %>
+  <%= render 'users/password_confirmation_fix', :f => f, :object => f.object %>
 
   <div class="actions">
     <%= f.submit "Sign up" %>

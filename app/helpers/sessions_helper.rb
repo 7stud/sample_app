@@ -8,6 +8,19 @@ module SessionsHelper
     @current_user = user
   end
 
+  def deny_access
+    #store_location #see private section below
+    session[:return_to] = request.fullpath
+    redirect_to(signin_path, :notice => "Please sign in to access the page")
+  end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    #clear_return_to #see private section below
+    session[:return_to] = nil
+  end
+
+
 =begin
   def current_user=(user)
     @current_user = user
@@ -35,6 +48,7 @@ module SessionsHelper
     self.current_user = nil
   end
 =end
+
   def signed_in?
     #get_user_from_cookie ? true : false
     get_user_from_session ? true : false
@@ -42,7 +56,7 @@ module SessionsHelper
 
   def sign_out
     #cookies.delete(:remember_token) 
-    session.delete(:user_id)
+    session.delete(:user_id)   #deltes the key named :user_id
     @current_user = nil
   end
 
@@ -51,9 +65,26 @@ module SessionsHelper
     @current_user || begin
       #cookie_array = cookies.signed[:remember_token] || [nil, nil]
       #@current_user = User.authenticate_with_salt(*cookie_array)
-      @current_user = User.find_by_id( session[:user_id] )  #and method returns this val
+      @current_user = User.find_by_id( session[:user_id] )  #method returns this val
     end
   end
+
+  def current_user?(user)
+    @user == get_user_from_session
+  end
+  
+
+  private
+=begin
+    def store_location
+      session[:return_to] = request.fullpath
+    end
+    def clear_return_to
+      session[:return_to] = nil
+    end
+end
+
+
 =begin
   def get_user_from_cookie
     @current_user || begin
