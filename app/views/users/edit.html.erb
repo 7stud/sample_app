@@ -1,0 +1,36 @@
+<h1>Edit User</h1>
+
+<%= form_for(@user) do |f| %>
+
+  <%= render 'shared/error_messages', :object => f.object %>
+
+  <div class='field'>
+    <%= f.label :name, "Name:" %>
+    <%= f.text_field :name %>
+  </div>
+  <div class='field'>
+    <%= f.label :email, "Email:" %>
+    <%= f.text_field :email %>
+  </div>
+  <div class='field'>
+    <%= f.label :password, "Password:" %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Password confirmation:" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<div>
+  <%= gravatar_for(@user) %>
+  <a href="http://gravatar.com/emails">change avatar</a>
+</div>
+<div>Session id: <%= @session_id.inspect if @session_id%></div>
+<div>Sesssion id class: <%= @session_id_class.inspect if @session_id_class %></div>
+<div>Params id: <%= @params_id.inspect if @params_id%></div>
+<div>Params id class: <%= @params_id_class.inspect if @params_id_class %></div>
+
